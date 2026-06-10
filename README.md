@@ -31,21 +31,6 @@ The app supports task creation, completion tracking, category organization, and 
    git clone https://github.com/your-username/ai-productivity-assistant.git
    cd ai-productivity-assistant
 
-# AI Productivity Assistant
-
-## 📌 Project Overview
-AI Productivity Assistant is a modern task management app designed for the **logistics industry**.  
-It provides a clean, minimal interface with a calming blue color scheme, helping teams stay organized and efficient.  
-The app supports task creation, completion tracking, category organization, and a dark mode toggle for improved usability.
-
----
-
-## ✨ Features
-- **Task Management**: Add, edit, and mark tasks as complete.  
-- **Category Organization**: Group tasks into categories such as Shipments, Warehouse, and Deliveries.  
-- **Dark Mode Toggle**: Switch between light and dark themes for better accessibility.  
-- **Priority Settings**: Assign tasks as High, Medium, or Low priority.  
-- **Logistics Focus**: Tailored for managing shipments, warehouse operations, and delivery routes.  
 
 ---
 
