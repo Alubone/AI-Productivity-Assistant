@@ -14,11 +14,18 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as AuthenticatedResearchRouteImport } from './routes/_authenticated/research'
+import { Route as AuthenticatedProfileRouteImport } from './routes/_authenticated/profile'
 import { Route as AuthenticatedPlannerRouteImport } from './routes/_authenticated/planner'
 import { Route as AuthenticatedNotesRouteImport } from './routes/_authenticated/notes'
 import { Route as AuthenticatedEmailRouteImport } from './routes/_authenticated/email'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedChatRouteImport } from './routes/_authenticated/chat'
+import { Route as AuthenticatedOperationsWarehouseRouteImport } from './routes/_authenticated/operations.warehouse'
+import { Route as AuthenticatedOperationsTruckingRouteImport } from './routes/_authenticated/operations.trucking'
+import { Route as AuthenticatedOperationsSupplyChainRouteImport } from './routes/_authenticated/operations.supply-chain'
+import { Route as AuthenticatedOperationsOceanRouteImport } from './routes/_authenticated/operations.ocean'
+import { Route as AuthenticatedOperationsCustomsRouteImport } from './routes/_authenticated/operations.customs'
+import { Route as AuthenticatedOperationsAirRouteImport } from './routes/_authenticated/operations.air'
 import { Route as AuthenticatedChatThreadIdRouteImport } from './routes/_authenticated/chat.$threadId'
 
 const AuthRoute = AuthRouteImport.update({
@@ -43,6 +50,11 @@ const ApiChatRoute = ApiChatRouteImport.update({
 const AuthenticatedResearchRoute = AuthenticatedResearchRouteImport.update({
   id: '/research',
   path: '/research',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedProfileRoute = AuthenticatedProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const AuthenticatedPlannerRoute = AuthenticatedPlannerRouteImport.update({
@@ -70,6 +82,42 @@ const AuthenticatedChatRoute = AuthenticatedChatRouteImport.update({
   path: '/chat',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedOperationsWarehouseRoute =
+  AuthenticatedOperationsWarehouseRouteImport.update({
+    id: '/operations/warehouse',
+    path: '/operations/warehouse',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedOperationsTruckingRoute =
+  AuthenticatedOperationsTruckingRouteImport.update({
+    id: '/operations/trucking',
+    path: '/operations/trucking',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedOperationsSupplyChainRoute =
+  AuthenticatedOperationsSupplyChainRouteImport.update({
+    id: '/operations/supply-chain',
+    path: '/operations/supply-chain',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedOperationsOceanRoute =
+  AuthenticatedOperationsOceanRouteImport.update({
+    id: '/operations/ocean',
+    path: '/operations/ocean',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedOperationsCustomsRoute =
+  AuthenticatedOperationsCustomsRouteImport.update({
+    id: '/operations/customs',
+    path: '/operations/customs',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedOperationsAirRoute =
+  AuthenticatedOperationsAirRouteImport.update({
+    id: '/operations/air',
+    path: '/operations/air',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedChatThreadIdRoute =
   AuthenticatedChatThreadIdRouteImport.update({
     id: '/$threadId',
@@ -85,9 +133,16 @@ export interface FileRoutesByFullPath {
   '/email': typeof AuthenticatedEmailRoute
   '/notes': typeof AuthenticatedNotesRoute
   '/planner': typeof AuthenticatedPlannerRoute
+  '/profile': typeof AuthenticatedProfileRoute
   '/research': typeof AuthenticatedResearchRoute
   '/api/chat': typeof ApiChatRoute
   '/chat/$threadId': typeof AuthenticatedChatThreadIdRoute
+  '/operations/air': typeof AuthenticatedOperationsAirRoute
+  '/operations/customs': typeof AuthenticatedOperationsCustomsRoute
+  '/operations/ocean': typeof AuthenticatedOperationsOceanRoute
+  '/operations/supply-chain': typeof AuthenticatedOperationsSupplyChainRoute
+  '/operations/trucking': typeof AuthenticatedOperationsTruckingRoute
+  '/operations/warehouse': typeof AuthenticatedOperationsWarehouseRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -97,9 +152,16 @@ export interface FileRoutesByTo {
   '/email': typeof AuthenticatedEmailRoute
   '/notes': typeof AuthenticatedNotesRoute
   '/planner': typeof AuthenticatedPlannerRoute
+  '/profile': typeof AuthenticatedProfileRoute
   '/research': typeof AuthenticatedResearchRoute
   '/api/chat': typeof ApiChatRoute
   '/chat/$threadId': typeof AuthenticatedChatThreadIdRoute
+  '/operations/air': typeof AuthenticatedOperationsAirRoute
+  '/operations/customs': typeof AuthenticatedOperationsCustomsRoute
+  '/operations/ocean': typeof AuthenticatedOperationsOceanRoute
+  '/operations/supply-chain': typeof AuthenticatedOperationsSupplyChainRoute
+  '/operations/trucking': typeof AuthenticatedOperationsTruckingRoute
+  '/operations/warehouse': typeof AuthenticatedOperationsWarehouseRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -111,9 +173,16 @@ export interface FileRoutesById {
   '/_authenticated/email': typeof AuthenticatedEmailRoute
   '/_authenticated/notes': typeof AuthenticatedNotesRoute
   '/_authenticated/planner': typeof AuthenticatedPlannerRoute
+  '/_authenticated/profile': typeof AuthenticatedProfileRoute
   '/_authenticated/research': typeof AuthenticatedResearchRoute
   '/api/chat': typeof ApiChatRoute
   '/_authenticated/chat/$threadId': typeof AuthenticatedChatThreadIdRoute
+  '/_authenticated/operations/air': typeof AuthenticatedOperationsAirRoute
+  '/_authenticated/operations/customs': typeof AuthenticatedOperationsCustomsRoute
+  '/_authenticated/operations/ocean': typeof AuthenticatedOperationsOceanRoute
+  '/_authenticated/operations/supply-chain': typeof AuthenticatedOperationsSupplyChainRoute
+  '/_authenticated/operations/trucking': typeof AuthenticatedOperationsTruckingRoute
+  '/_authenticated/operations/warehouse': typeof AuthenticatedOperationsWarehouseRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -125,9 +194,16 @@ export interface FileRouteTypes {
     | '/email'
     | '/notes'
     | '/planner'
+    | '/profile'
     | '/research'
     | '/api/chat'
     | '/chat/$threadId'
+    | '/operations/air'
+    | '/operations/customs'
+    | '/operations/ocean'
+    | '/operations/supply-chain'
+    | '/operations/trucking'
+    | '/operations/warehouse'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -137,9 +213,16 @@ export interface FileRouteTypes {
     | '/email'
     | '/notes'
     | '/planner'
+    | '/profile'
     | '/research'
     | '/api/chat'
     | '/chat/$threadId'
+    | '/operations/air'
+    | '/operations/customs'
+    | '/operations/ocean'
+    | '/operations/supply-chain'
+    | '/operations/trucking'
+    | '/operations/warehouse'
   id:
     | '__root__'
     | '/'
@@ -150,9 +233,16 @@ export interface FileRouteTypes {
     | '/_authenticated/email'
     | '/_authenticated/notes'
     | '/_authenticated/planner'
+    | '/_authenticated/profile'
     | '/_authenticated/research'
     | '/api/chat'
     | '/_authenticated/chat/$threadId'
+    | '/_authenticated/operations/air'
+    | '/_authenticated/operations/customs'
+    | '/_authenticated/operations/ocean'
+    | '/_authenticated/operations/supply-chain'
+    | '/_authenticated/operations/trucking'
+    | '/_authenticated/operations/warehouse'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -199,6 +289,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedResearchRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/profile': {
+      id: '/_authenticated/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof AuthenticatedProfileRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/planner': {
       id: '/_authenticated/planner'
       path: '/planner'
@@ -234,6 +331,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedChatRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/operations/warehouse': {
+      id: '/_authenticated/operations/warehouse'
+      path: '/operations/warehouse'
+      fullPath: '/operations/warehouse'
+      preLoaderRoute: typeof AuthenticatedOperationsWarehouseRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/operations/trucking': {
+      id: '/_authenticated/operations/trucking'
+      path: '/operations/trucking'
+      fullPath: '/operations/trucking'
+      preLoaderRoute: typeof AuthenticatedOperationsTruckingRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/operations/supply-chain': {
+      id: '/_authenticated/operations/supply-chain'
+      path: '/operations/supply-chain'
+      fullPath: '/operations/supply-chain'
+      preLoaderRoute: typeof AuthenticatedOperationsSupplyChainRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/operations/ocean': {
+      id: '/_authenticated/operations/ocean'
+      path: '/operations/ocean'
+      fullPath: '/operations/ocean'
+      preLoaderRoute: typeof AuthenticatedOperationsOceanRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/operations/customs': {
+      id: '/_authenticated/operations/customs'
+      path: '/operations/customs'
+      fullPath: '/operations/customs'
+      preLoaderRoute: typeof AuthenticatedOperationsCustomsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/operations/air': {
+      id: '/_authenticated/operations/air'
+      path: '/operations/air'
+      fullPath: '/operations/air'
+      preLoaderRoute: typeof AuthenticatedOperationsAirRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/chat/$threadId': {
       id: '/_authenticated/chat/$threadId'
       path: '/$threadId'
@@ -261,7 +400,14 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedEmailRoute: typeof AuthenticatedEmailRoute
   AuthenticatedNotesRoute: typeof AuthenticatedNotesRoute
   AuthenticatedPlannerRoute: typeof AuthenticatedPlannerRoute
+  AuthenticatedProfileRoute: typeof AuthenticatedProfileRoute
   AuthenticatedResearchRoute: typeof AuthenticatedResearchRoute
+  AuthenticatedOperationsAirRoute: typeof AuthenticatedOperationsAirRoute
+  AuthenticatedOperationsCustomsRoute: typeof AuthenticatedOperationsCustomsRoute
+  AuthenticatedOperationsOceanRoute: typeof AuthenticatedOperationsOceanRoute
+  AuthenticatedOperationsSupplyChainRoute: typeof AuthenticatedOperationsSupplyChainRoute
+  AuthenticatedOperationsTruckingRoute: typeof AuthenticatedOperationsTruckingRoute
+  AuthenticatedOperationsWarehouseRoute: typeof AuthenticatedOperationsWarehouseRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
@@ -270,7 +416,15 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedEmailRoute: AuthenticatedEmailRoute,
   AuthenticatedNotesRoute: AuthenticatedNotesRoute,
   AuthenticatedPlannerRoute: AuthenticatedPlannerRoute,
+  AuthenticatedProfileRoute: AuthenticatedProfileRoute,
   AuthenticatedResearchRoute: AuthenticatedResearchRoute,
+  AuthenticatedOperationsAirRoute: AuthenticatedOperationsAirRoute,
+  AuthenticatedOperationsCustomsRoute: AuthenticatedOperationsCustomsRoute,
+  AuthenticatedOperationsOceanRoute: AuthenticatedOperationsOceanRoute,
+  AuthenticatedOperationsSupplyChainRoute:
+    AuthenticatedOperationsSupplyChainRoute,
+  AuthenticatedOperationsTruckingRoute: AuthenticatedOperationsTruckingRoute,
+  AuthenticatedOperationsWarehouseRoute: AuthenticatedOperationsWarehouseRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
